@@ -8,72 +8,59 @@ class AbsensiView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(AbsensiController());
-    
+
     return Obx(() {
       if (controller.isLoading.value) {
-        return const Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
+        return const Scaffold(body: Center(child: CircularProgressIndicator()));
       }
 
       if (controller.hasError.value) {
         return Scaffold(
-          body: Center(
-            child: Text("Error: ${controller.errorMessage.value}"),
-          ),
+          body: Center(child: Text("Error: ${controller.errorMessage.value}")),
         );
       }
 
       return Scaffold(
-        appBar: AppBar(
-          title: const Text("Absensi"),
-          actions: const [],
-        ),
+        appBar: AppBar(title: const Text("Absensi"), actions: const []),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text(
-                "UniqueID: ${UniqueKey()}",
-                style: const TextStyle(
-                  fontSize: 18.0,
-                ),
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Stack(
                 children: [
-                  IconButton(
-                    onPressed: () => controller.decrement(),
-                    icon: const Icon(Icons.remove, color: Colors.grey),
-                  ),
-                  Obx(() => Text(
-                    "${controller.counter.value}",
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey,
+                  Container(
+                    height: 160,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF1C7ED4),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12.0),
+                      ),
                     ),
-                  )),
-                  IconButton(
-                    onPressed: () => controller.increment(),
-                    icon: const Icon(Icons.add, color: Colors.grey),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "assets/logo/logo.png",
+                          width: 120.0,
+                          height: 120.0,
+                          fit: BoxFit.fill,
+                        ),
+                        const SizedBox(width: 10.0),
+                        Text(
+                          "Melita Kitchen",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () => controller.initializeData(),
-                child: const Text("Reload"),
               ),
             ],
           ),

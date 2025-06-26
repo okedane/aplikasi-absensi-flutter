@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
+import 'package:test_getx/core/utils/validator/login_validator.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final isObscure = true.obs;
-    final formKey = GlobalKey<FormState>();
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: Form(
-            key: formKey,
+            key: controller.formKey,
             child: Column(
               children: [
                 const SizedBox(height: 80),
@@ -32,46 +30,33 @@ class LoginView extends GetView<LoginController> {
                 ),
                 const SizedBox(height: 30),
                 TextFormField(
+                  controller: controller.emailController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
                     labelStyle: TextStyle(color: Colors.blueGrey),
                   ),
-                  onChanged: (val) => controller.email.value = val,
-                  validator: (val) {
-                    if (val == null || val.isEmpty) {
-                      return 'Email wajib diisi';
-                    }
-                    if (!val.contains('@')) {
-                      return 'Format email tidak valid';
-                    }
-                    return null;
-                  },
+                  validator: LoginValidator.validateEmail,
                 ),
                 const SizedBox(height: 10),
                 Obx(
                   () => TextFormField(
-                    obscureText: isObscure.value,
+                    controller: controller.passwordController,
+                    obscureText: controller.isObscure.value,
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       labelText: 'Password',
                       labelStyle: const TextStyle(color: Colors.blueGrey),
                       suffixIcon: IconButton(
                         icon: Icon(
-                          isObscure.value
+                          controller.isObscure.value
                               ? Icons.visibility_off
                               : Icons.visibility,
                         ),
-                        onPressed: () => isObscure.value = !isObscure.value,
+                        onPressed: controller.toggleObscure,
                       ),
                     ),
-                    onChanged: (val) => controller.password.value = val,
-                    validator: (val) {
-                      if (val == null || val.isEmpty) {
-                        return 'Password wajib diisi';
-                      }
-                      return null;
-                    },
+                    validator: LoginValidator.validatePassword,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -87,9 +72,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                     ),
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        controller.login();
-                      }
+                      controller.login();
                     },
                     child: Obx(
                       () => controller.isLoading.value

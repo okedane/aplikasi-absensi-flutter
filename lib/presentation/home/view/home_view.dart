@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
+import 'package:test_getx/routes/app_pages.dart';
 
 import '../widget/header/header_widget.dart';
 import '../widget/fiturAbsensi/fiturAbsensi_widget.dart';
@@ -62,7 +63,9 @@ class HomeView extends GetView<HomeController> {
                   FiturAbsensi(
                     fitur: "Absensi",
                     descripsi: "Klik untuk melakukan Absen",
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.absensi);
+                    },
                     icon: Icons.location_on_outlined,
                   ),
                   FiturAbsensi(

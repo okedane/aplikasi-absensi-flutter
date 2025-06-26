@@ -4,5 +4,6 @@ class ApiConstants {
   // Optional tambahan untuk endpoint
   static const login = '$baseUrl/login';
   static const user = '$baseUrl/user';
+  static const schedule = '$baseUrl/jadwal-kerja/hari-ini';
   // dst...
 }

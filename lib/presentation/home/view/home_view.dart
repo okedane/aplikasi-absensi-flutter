@@ -71,7 +71,7 @@ class HomeView extends GetView<HomeController> {
                   FiturAbsensi(
                     fitur: "Lembur",
                     descripsi: "Klik untuk melihat daftar Lembur",
-                    onPressed: () {},
+                    onPressed: () => Get.toNamed(AppRoutes.lembur),
                     icon: Icons.timelapse,
                   ),
                 ],

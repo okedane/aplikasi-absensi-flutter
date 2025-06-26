@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:test_getx/data/models/schedule/ScheduleTodayModel.dart';
 import 'package:test_getx/data/providers/absensi/absensi_provider.dart';
 import 'package:test_getx/data/providers/schedule/schedule_provider.dart';
-import 'package:test_getx/data/services/location_service.dart';
 
 class AbsensiController extends GetxController {
   final scheduleToday = Rxn<ScheduleTodayModel>();

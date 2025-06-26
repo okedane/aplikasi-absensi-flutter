@@ -1,36 +1,33 @@
 import 'package:get/get.dart';
+import 'package:test_getx/data/models/lembur/lembur_model.dart';
+import 'package:test_getx/data/providers/lembur/lembur_provider.dart';
 
 class LemburController extends GetxController {
+  final lembur = Rxn<LemburModel>();
   final RxBool isLoading = false.obs;
   final RxBool hasError = false.obs;
   final RxString errorMessage = "".obs;
-  final RxInt counter = 0.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-    initializeData();
-  }
+  final LemburProvider provider = LemburProvider();
 
-  Future<void> initializeData() async {
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   initializeData();
+  // }
+
+  Future<void> getLembur() async {
     isLoading.value = true;
+    hasError.value = false;
     try {
-      // Simulate API call
+      final result = await provider.getLembur();
+      lembur.value = result;
       await Future.delayed(const Duration(seconds: 2));
-      isLoading.value = false;
-      hasError.value = false;
     } catch (e) {
-      isLoading.value = false;
       hasError.value = true;
       errorMessage.value = e.toString();
+    } finally {
+      isLoading.value = false;
     }
-  }
-
-  void increment() {
-    counter.value++;
-  }
-
-  void decrement() {
-    counter.value--;
   }
 }

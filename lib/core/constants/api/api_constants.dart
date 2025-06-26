@@ -5,5 +5,7 @@ class ApiConstants {
   static const login = '$baseUrl/login';
   static const user = '$baseUrl/user';
   static const schedule = '$baseUrl/jadwal-kerja/hari-ini';
+  static const absensi = '$baseUrl/absensi';
+  static const lembur = '$baseUrl/lembur';
   // dst...
 }

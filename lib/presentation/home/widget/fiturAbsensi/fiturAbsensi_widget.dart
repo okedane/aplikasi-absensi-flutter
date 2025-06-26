@@ -40,6 +40,7 @@ class FiturAbsensi extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
+                  // ignore: deprecated_member_use
                   color: Colors.blue.withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),

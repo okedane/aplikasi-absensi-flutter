@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core/constants/style/app_colors.dart';
@@ -46,6 +48,7 @@ class AbsensiView extends GetView<AbsensiController> {
                       borderRadius: BorderRadius.all(Radius.circular(16.0)),
                       boxShadow: [
                         BoxShadow(
+                          // ignore: deprecated_member_use
                           color: Colors.black.withOpacity(0.2),
                           blurRadius: 10,
                           offset: const Offset(0, 4),
@@ -171,21 +174,23 @@ class AbsensiView extends GetView<AbsensiController> {
                 width: MediaQuery.of(context).size.width,
                 height: 48,
                 child: ElevatedButton(
-                  onPressed: () {},
-
+                  onPressed: () => controller.absen(),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-
-                  child: Text(
-                    "Absen",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: whiteC,
-                    ),
+                  child: Obx(
+                    () => controller.isLoading.value
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : Text(
+                            "Absen",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: whiteC,
+                            ),
+                          ),
                   ),
                 ),
               ),

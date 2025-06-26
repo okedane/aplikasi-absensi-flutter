@@ -7,8 +7,6 @@ fileCount: 17
 export 'package:test_getx/core_package.dart';
 export 'package:test_getx/presentation/absensi/controller/absensi_controller.dart';
 export 'package:test_getx/presentation/absensi/view/absensi_view.dart';
-export 'package:test_getx/presentation/auth/controller/auth_controller.dart';
-export 'package:test_getx/presentation/auth/view/auth_view.dart';
 export 'package:test_getx/presentation/history/controller/history_controller.dart';
 export 'package:test_getx/presentation/history/view/history_view.dart';
 export 'package:test_getx/presentation/home/controller/home_controller.dart';

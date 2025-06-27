@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ControllerEmpty extends StatelessWidget {
   final String textAppbar;
+  final String title;
   final String pesan;
   const ControllerEmpty({
     required this.textAppbar,
+    required this.title,
     required this.pesan,
     super.key,
   });
@@ -47,7 +49,7 @@ class ControllerEmpty extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                "Belum Ada Data ControllerEmpty",
+                title,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

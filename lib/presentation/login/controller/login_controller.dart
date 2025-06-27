@@ -71,6 +71,11 @@ class LoginController extends GetxController {
     isObscure.value = !isObscure.value;
   }
 
+  @override
+  void refresh() {
+    login();
+  }
+
   void logout() {
     final storage = GetStorage();
     storage.remove('token');

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:test_getx/presentation/izin/view/create_screen.dart';
 import '../presentation/main/view/main_view.dart';
 
 import './app_pages.dart';
@@ -29,7 +30,7 @@ final List<GetPage> appPages = [
     page: () => const MainView(),
     binding: MainBinding(),
   ),
-    GetPage(
+  GetPage(
     name: AppRoutes.home,
     page: () => const HomeView(),
     binding: HomeBinding(),
@@ -49,6 +50,7 @@ final List<GetPage> appPages = [
   ),
 
   GetPage(name: AppRoutes.izin, page: () => IzinView(), binding: IzinBinding()),
+  GetPage(name: AppRoutes.izinCreate, page: () => CreateScreen()),
 
   GetPage(
     name: AppRoutes.history,

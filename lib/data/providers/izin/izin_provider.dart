@@ -22,4 +22,33 @@ class IzinProvider {
       throw Exception('Gagal Memuat data Izin');
     }
   }
+
+  Future<void> createIzin({
+    required String tanggalMulai,
+    required String tanggalSelesai,
+    required String jenisIzin,
+    required String alasan,
+  }) async {
+    final token = storage.read('token');
+
+    final response = await http.post(
+      Uri.parse(ApiConstants.izinStore),
+      headers: {'Authorization': 'Bearer $token', 'Accept': 'application/json'},
+      body: {
+        'tanggal_mulai': tanggalMulai,
+        'tanggal_selesai': tanggalSelesai,
+        'jenis_izin': jenisIzin,
+        'alasan': alasan,
+      },
+    );
+
+    final body = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return; // Berhasil
+    } else {
+      // Tangkap pesan dari server
+      throw Exception(body['message'] ?? 'Gagal menyimpan izin');
+    }
+  }
 }

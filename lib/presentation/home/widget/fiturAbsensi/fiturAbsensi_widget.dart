@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_getx/core/constants/style/app_colors.dart';
 
 class FiturAbsensi extends StatelessWidget {
   final String fitur;
@@ -41,18 +42,23 @@ class FiturAbsensi extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   // ignore: deprecated_member_use
-                  color: Colors.blue.withOpacity(0.1),
+                  color: const Color.fromARGB(
+                    87,
+                    226,
+                    41,
+                    164,
+                  ).withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
                 padding: const EdgeInsets.all(12.0),
-                child: Icon(icon, size: 30, color: Colors.blue),
+                child: Icon(icon, size: 30, color: primaryColor),
               ),
               const Spacer(),
               Text(
                 fitur,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: primaryColor,
                 ),
               ),
               Text(

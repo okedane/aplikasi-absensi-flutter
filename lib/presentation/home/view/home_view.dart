@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
+import 'package:test_getx/core/constants/style/app_colors.dart';
 import 'package:test_getx/routes/app_pages.dart';
 
 import '../widget/header/header_widget.dart';
@@ -26,10 +27,19 @@ class HomeView extends GetView<HomeController> {
                     height: 160,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF1C7ED4),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(12.0),
+                      gradient: LinearGradient(
+                        colors: [primaryColor, primaryLight],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: primaryColor.withOpacity(0.3),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
@@ -77,22 +87,6 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
               const SizedBox(height: 10.0),
-
-              IconButton(
-                onPressed: () {
-                  Get.defaultDialog(
-                    title: "Keluar Aplikasi?",
-                    middleText: "Apakah kamu yakin ingin logout?",
-                    textConfirm: "Ya",
-                    textCancel: "Batal",
-                    confirmTextColor: Colors.white,
-                    onConfirm: () {
-                      controller.logout();
-                    },
-                  );
-                },
-                icon: const Icon(Icons.logout),
-              ),
             ],
           ),
         ),

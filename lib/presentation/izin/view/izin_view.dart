@@ -101,8 +101,9 @@ class IzinView extends GetView<IzinController> {
                           // Navigasi ke detail atau dialog
                         },
                         onEdit: () {
-                          // Navigasi ke halaman edit izin
+                          Get.toNamed(AppRoutes.izinEdit, arguments: item);
                         },
+
                         onDelete: () {
                           _showDeleteDialog(item); // Fungsi ini sudah kamu buat
                         },
@@ -132,7 +133,7 @@ class IzinView extends GetView<IzinController> {
             backgroundColor: primaryColor,
             foregroundColor: whiteC,
             onPressed: () {
-              controller.resetForm(); 
+              controller.resetForm();
               Get.toNamed(AppRoutes.izinCreate);
             },
             icon: const Icon(Icons.add_rounded),
@@ -161,15 +162,10 @@ class IzinView extends GetView<IzinController> {
           TextButton(onPressed: () => Get.back(), child: const Text("Batal")),
           ElevatedButton(
             onPressed: () {
-              // Handle delete action
               Get.back();
-              Get.snackbar(
-                "Berhasil",
-                "Izin berhasil dihapus",
-                backgroundColor: successColor,
-                colorText: whiteC,
-                snackPosition: SnackPosition.TOP,
-              );
+              final controller = Get.find<IzinController>();
+              controller.deleteIzin(item.id);
+              Get.back();
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: dangerColor,

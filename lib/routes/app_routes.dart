@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:test_getx/presentation/izin/view/create_screen.dart';
+import 'package:test_getx/presentation/izin/view/edit_screen.dart';
 import '../presentation/main/view/main_view.dart';
 
 import './app_pages.dart';
@@ -51,6 +52,11 @@ final List<GetPage> appPages = [
 
   GetPage(name: AppRoutes.izin, page: () => IzinView(), binding: IzinBinding()),
   GetPage(name: AppRoutes.izinCreate, page: () => CreateScreen()),
+  GetPage(
+    name: AppRoutes.izinEdit,
+    page: () => EditScreen(),
+    binding: IzinBinding(),
+  ),
 
   GetPage(
     name: AppRoutes.history,

@@ -9,5 +9,7 @@ class ApiConstants {
   static const lembur = '$baseUrl/lembur';
   static const izin = '$baseUrl/izin';
   static const izinStore = '$baseUrl/izin/store';
+  static const izinUpdate = '$baseUrl/izin/update';
+  static const izinDelete = '$baseUrl/izin/delete';
   // dst...
 }

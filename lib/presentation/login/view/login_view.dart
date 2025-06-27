@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
+import 'package:test_getx/core/constants/style/app_colors.dart';
 import 'package:test_getx/core/utils/validator/login_validator.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -65,7 +66,7 @@ class LoginView extends GetView<LoginController> {
                   height: 48,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                      backgroundColor: primaryColor,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),

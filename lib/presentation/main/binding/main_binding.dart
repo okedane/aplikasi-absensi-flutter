@@ -7,5 +7,6 @@ class MainBinding extends Bindings {
     Get.lazyPut<MainController>(() => MainController());
     Get.lazyPut<HomeController>(() => HomeController());
     Get.lazyPut<IzinController>(() => IzinController());
+    Get.lazyPut<HistoryController>(() => HistoryController());
   }
 }

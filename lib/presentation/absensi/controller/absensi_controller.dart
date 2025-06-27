@@ -13,6 +13,7 @@ class AbsensiController extends GetxController {
   final hasError = false.obs;
   final errorMessage = ''.obs;
   final isAbsenLoading = false.obs;
+  
   Timer? _jadwalTimer;
   DateTime _lastDate = DateTime.now().toLocal().copyWith(
     hour: 0,

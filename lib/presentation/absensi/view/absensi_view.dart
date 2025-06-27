@@ -5,31 +5,38 @@ import 'package:get/get.dart';
 import 'package:test_getx/core/constants/style/app_colors.dart';
 import 'package:test_getx/core/utils/formatter/date_formatter.dart';
 import 'package:test_getx/presentation/absensi/controller/absensi_controller.dart';
+import 'package:test_getx/widgets/Controller/controller_empty.dart';
+import 'package:test_getx/widgets/Controller/controller_error.dart';
+import 'package:test_getx/widgets/Controller/controller_loading.dart';
+import 'package:test_getx/widgets/appbar/appbar_widget.dart';
 
 class AbsensiView extends GetView<AbsensiController> {
   const AbsensiView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.find<AbsensiController>;
-
     return Obx(() {
       if (controller.isLoading.value) {
-        return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        return ControllerLoading(pesan: "Memuat data History");
       }
 
       if (controller.hasError.value) {
-        return Scaffold(
-          body: Center(child: Text("Error: ${controller.errorMessage.value}")),
+        return ControllerError(
+          message: controller.errorMessage.value,
+          onRetry: controller.refresh,
         );
       }
       final data = controller.scheduleToday.value;
       if (data == null) {
-        return const Center(child: Text("Tidak ada jadwal hari ini."));
+        return ControllerEmpty(
+          textAppbar: "Absensi",
+          title: "Belum ada Absensi",
+          pesan: "Belum ada Absensi Hari ini",
+        );
       }
 
       return Scaffold(
-        appBar: _buildAppBar(),
+        appBar: AppBarWidget(title: "Absensi"),
         body: RefreshIndicator(
           onRefresh: () async => controller.refresh(),
           child: SingleChildScrollView(

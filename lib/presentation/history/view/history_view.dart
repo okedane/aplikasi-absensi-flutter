@@ -1,84 +1,133 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
+import 'package:test_getx/data/models/history/history_model.dart';
+import 'package:test_getx/widgets/Controller/controller_empty.dart';
+import 'package:test_getx/widgets/Controller/controller_error.dart';
+import 'package:test_getx/widgets/Controller/controller_loading.dart';
+import 'package:test_getx/widgets/appbar/appbar_widget.dart';
 
-class HistoryView extends StatelessWidget {
+class HistoryView extends GetView<HistoryController> {
   const HistoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HistoryController());
-    
     return Obx(() {
       if (controller.isLoading.value) {
-        return const Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
+        return ControllerLoading(pesan: "Memuat data History");
       }
 
       if (controller.hasError.value) {
-        return Scaffold(
-          body: Center(
-            child: Text("Error: ${controller.errorMessage.value}"),
-          ),
+        return ControllerError(
+          message: controller.errorMessage.value,
+          onRetry: controller.refresh,
+        );
+      }
+
+      final data = controller.historyList
+        ..sort((a, b) => b.tanggal.compareTo(a.tanggal)); // Urut dari terbaru
+      final limitedData = data.take(5).toList();
+      if (data.isEmpty) {
+        return ControllerEmpty(
+          textAppbar: "History",
+          title: "Belum ada History",
+          pesan: "Tidak ada History bulan ini ",
         );
       }
 
       return Scaffold(
-        appBar: AppBar(
-          title: const Text("History"),
-          actions: const [],
-        ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Text(
-                "UniqueID: ${UniqueKey()}",
-                style: const TextStyle(
-                  fontSize: 18.0,
+        appBar: AppBarWidget(title: "History"),
+        body: RefreshIndicator(
+          onRefresh: () async {
+            controller.refresh();
+          },
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                ListView.builder(
+                  itemCount: limitedData.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    final item = data[index];
+                    return Card(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(12),
+                        side: BorderSide(color: Colors.grey[200]!),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          gradient: LinearGradient(
+                            colors: [Colors.white, Colors.grey[50]!],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildHeader(context, item),
+                              SizedBox(height: 16.0),
+                              Text(item.status),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () => controller.decrement(),
-                    icon: const Icon(Icons.remove, color: Colors.grey),
-                  ),
-                  Obx(() => Text(
-                    "${controller.counter.value}",
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey,
-                    ),
-                  )),
-                  IconButton(
-                    onPressed: () => controller.increment(),
-                    icon: const Icon(Icons.add, color: Colors.grey),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () => controller.initializeData(),
-                child: const Text("Reload"),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );
     });
   }
+}
+
+Widget _buildHeader(BuildContext context, AbsensiHistoryModel item) {
+  return Row(
+    children: [
+      Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.blue[100],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Icon(Icons.calendar_today, size: 16, color: Colors.blue[600]),
+      ),
+      const SizedBox(width: 12),
+      Expanded(
+        child: Text(
+          item.tanggal, // bisa diformat ke format tanggal lokal
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: Colors.grey[800],
+          ),
+        ),
+      ),
+      Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: Colors.green[100],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(
+          item.jamAbsen,
+          style: TextStyle(
+            color: Colors.green[700],
+            fontWeight: FontWeight.w600,
+            fontSize: 12,
+          ),
+        ),
+      ),
+    ],
+  );
 }

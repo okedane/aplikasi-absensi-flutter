@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_getx/data/models/lembur/lembur_model.dart';
+import 'package:test_getx/core/constants/style/app_colors.dart';
 
 class LemburSummaryCard extends StatelessWidget {
   final List<LemburModel> lemburList;
@@ -19,7 +20,7 @@ class LemburSummaryCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.blue[600]!, Colors.blue[400]!],
+          colors: [primaryColor, primaryLight],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

@@ -1,36 +1,39 @@
 import 'package:get/get.dart';
+import 'package:test_getx/data/models/history/history_model.dart';
+import 'package:test_getx/data/providers/history/history_provider.dart';
 
 class HistoryController extends GetxController {
+  final historyList = <AbsensiHistoryModel>[].obs;
   final RxBool isLoading = false.obs;
   final RxBool hasError = false.obs;
   final RxString errorMessage = "".obs;
-  final RxInt counter = 0.obs;
+
+  final HistoryProvider provider = HistoryProvider();
 
   @override
   void onInit() {
     super.onInit();
-    initializeData();
+    fetchHistory();
   }
 
-  Future<void> initializeData() async {
-    isLoading.value = true;
+  Future<void> fetchHistory() async {
     try {
-      // Simulate API call
-      await Future.delayed(const Duration(seconds: 2));
-      isLoading.value = false;
+      isLoading.value = true;
       hasError.value = false;
+      errorMessage.value = "";
+      final response = await provider.getHistory();
+
+      historyList.value = response;
     } catch (e) {
-      isLoading.value = false;
+      // Debug log
       hasError.value = true;
       errorMessage.value = e.toString();
+    } finally {
+      isLoading.value = false;
     }
   }
 
-  void increment() {
-    counter.value++;
-  }
-
-  void decrement() {
-    counter.value--;
+  Future<void> refresh() async {
+    await fetchHistory();
   }
 }

@@ -22,7 +22,7 @@ class LemburController extends GetxController {
 
     try {
       final result = await provider
-          .getLembur(); // result harus List<LemburModel>
+          .getLembur(); 
       lemburList.assignAll(result);
     } catch (e) {
       hasError.value = true;
@@ -30,5 +30,10 @@ class LemburController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+  }
+
+  @override
+  void refresh() async {
+    await getLembur();
   }
 }

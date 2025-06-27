@@ -1,36 +1,37 @@
 import 'package:get/get.dart';
+import 'package:test_getx/data/models/izin/izin_model.dart';
+import 'package:test_getx/data/providers/izin/izin_provider.dart';
 
 class IzinController extends GetxController {
+  final izinList = <IzinModel>[].obs;
   final RxBool isLoading = false.obs;
   final RxBool hasError = false.obs;
   final RxString errorMessage = "".obs;
-  final RxInt counter = 0.obs;
+  final IzinProvider provider = IzinProvider();
+
 
   @override
   void onInit() {
     super.onInit();
-    initializeData();
+    fetchIzin();
   }
 
-  Future<void> initializeData() async {
+  @override
+  void refresh() async {
+    await fetchIzin();
+  }
+
+  Future<void> fetchIzin() async {
     isLoading.value = true;
+    hasError.value = false;
     try {
-      // Simulate API call
-      await Future.delayed(const Duration(seconds: 2));
-      isLoading.value = false;
-      hasError.value = false;
+      final result = await provider.getIzin();
+      izinList.assignAll(result);
     } catch (e) {
       isLoading.value = false;
-      hasError.value = true;
       errorMessage.value = e.toString();
+    } finally {
+      isLoading.value = false;
     }
-  }
-
-  void increment() {
-    counter.value++;
-  }
-
-  void decrement() {
-    counter.value--;
   }
 }

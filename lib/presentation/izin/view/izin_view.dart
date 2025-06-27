@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
+import 'package:test_getx/core/constants/style/app_colors.dart';
+import 'package:test_getx/core/utils/formatter/date_formatter.dart';
+import 'package:test_getx/presentation/lembur/widget/lembur_appbar.dart';
+import 'package:test_getx/widgets/Controller/controller_empty.dart';
+import 'package:test_getx/widgets/Controller/controller_error.dart';
+import 'package:test_getx/widgets/Controller/controller_loading.dart';
+import 'package:test_getx/widgets/appbar/appbar_widget.dart';
 
 class IzinView extends StatelessWidget {
   const IzinView({super.key});
@@ -8,75 +15,102 @@ class IzinView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(IzinController());
-    
+
     return Obx(() {
       if (controller.isLoading.value) {
-        return const Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
+        return ControllerLoading(pesan: "Memuat data Izin");
       }
 
       if (controller.hasError.value) {
-        return Scaffold(
-          body: Center(
-            child: Text("Error: ${controller.errorMessage.value}"),
-          ),
+        return ControllerError(
+          message: controller.errorMessage.value,
+          onRetry: controller.refresh,
         );
       }
 
+      final data = controller.izinList;
+      if (data.isEmpty) {
+        return ControllerEmpty(
+          textAppbar: "Izin",
+          pesan: "Tidak ada Izin bulan ",
+        );
+      }
       return Scaffold(
-        appBar: AppBar(
-          title: const Text("Izin"),
-          actions: const [],
-        ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Text(
-                "UniqueID: ${UniqueKey()}",
-                style: const TextStyle(
-                  fontSize: 18.0,
+        backgroundColor: Colors.grey[50],
+        appBar: LemburAppBar(),
+        body: RefreshIndicator(
+          onRefresh: () async => controller.refresh,
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                ListView.builder(
+                  itemCount: data.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    final item = data[index];
+                    return Card(
+                      child: ListTile(
+                        title: const Text(
+                          "Sakit",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 4.0),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: primaryLight,
+                                border: Border.all(color: primaryLight),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Text(
+                                "Status",
+                                style: TextStyle(
+                                  color: primaryLight,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 4.0),
+                            Text(
+                              "${DateFormatter.formatHariTanggal(item.tanggalMulai)} s/d ${DateFormatter.formatHariTanggal(item.tanggalSelesai)}",
+                              style: const TextStyle(fontSize: 11),
+                            ),
+                          ],
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.edit, size: 24.0),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.delete, size: 24.0),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () => controller.decrement(),
-                    icon: const Icon(Icons.remove, color: Colors.grey),
-                  ),
-                  Obx(() => Text(
-                    "${controller.counter.value}",
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey,
-                    ),
-                  )),
-                  IconButton(
-                    onPressed: () => controller.increment(),
-                    icon: const Icon(Icons.add, color: Colors.grey),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () => controller.initializeData(),
-                child: const Text("Reload"),
-              ),
-            ],
+              ],
+            ),
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {},
         ),
       );
     });

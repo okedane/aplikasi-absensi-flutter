@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const baseUrl = 'https://7f03-103-160-202-114.ngrok-free.app/api';
+  static const baseUrl = 'https://082a-103-163-102-105.ngrok-free.app/api';
 
   // Optional tambahan untuk endpoint
   static const login = '$baseUrl/login';
@@ -12,6 +12,11 @@ class ApiConstants {
   static const izinUpdate = '$baseUrl/izin/update';
   static const izinDelete = '$baseUrl/izin/delete';
   static const history = '$baseUrl/absensi/history';
+
+  // forgot password
+  static const forgot = '$baseUrl/forgot-password';
+  static const verify = '$baseUrl/verify-code';
+  static const reset = '$baseUrl/reset-password';
 
   // dst...
 }

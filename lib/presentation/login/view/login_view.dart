@@ -32,10 +32,25 @@ class LoginView extends GetView<LoginController> {
                 const SizedBox(height: 30),
                 TextFormField(
                   controller: controller.emailController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: primaryColor,
+                      ), // warna border normal
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: primaryColor,
+                      ), // warna border saat tidak fokus
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: primaryLight,
+                        width: 2.0,
+                      ), // warna border saat fokus
+                    ),
                     labelText: 'Email',
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.grey),
                   ),
                   validator: LoginValidator.validateEmail,
                 ),
@@ -45,14 +60,30 @@ class LoginView extends GetView<LoginController> {
                     controller: controller.passwordController,
                     obscureText: controller.isObscure.value,
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: primaryColor,
+                        ), // warna border normal
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: primaryColor,
+                        ), // warna border saat tidak fokus
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: primaryLight,
+                          width: 2.0,
+                        ), // warna border saat fokus
+                      ),
                       labelText: 'Password',
-                      labelStyle: const TextStyle(color: Colors.blueGrey),
+                      labelStyle: const TextStyle(color: Colors.grey),
                       suffixIcon: IconButton(
                         icon: Icon(
                           controller.isObscure.value
                               ? Icons.visibility_off
                               : Icons.visibility,
+                          color: Colors.grey,
                         ),
                         onPressed: controller.toggleObscure,
                       ),
@@ -67,7 +98,7 @@ class LoginView extends GetView<LoginController> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
-                      foregroundColor: Colors.white,
+                      foregroundColor: whiteC,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -83,7 +114,12 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
                 const SizedBox(height: 200.0),
-                InkWell(onTap: () {}, child: const Text("Forgot Password")),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(AppRoutes.forgotPassword);
+                  },
+                  child: const Text("Forgot Password"),
+                ),
               ],
             ),
           ),

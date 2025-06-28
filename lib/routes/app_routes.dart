@@ -1,4 +1,8 @@
 import 'package:get/get.dart';
+import 'package:test_getx/presentation/forgot_password/binding/forgot_password_binding.dart';
+import 'package:test_getx/presentation/forgot_password/view/forgot_password_view.dart';
+import 'package:test_getx/presentation/forgot_password/view/reset_password_view.dart';
+import 'package:test_getx/presentation/forgot_password/view/verify_code_view.dart';
 import 'package:test_getx/presentation/izin/view/create_screen.dart';
 import 'package:test_getx/presentation/izin/view/edit_screen.dart';
 import '../presentation/main/view/main_view.dart';
@@ -24,6 +28,24 @@ final List<GetPage> appPages = [
     name: AppRoutes.login,
     page: () => LoginView(),
     binding: LoginBinding(),
+  ),
+
+  GetPage(
+    name: AppRoutes.forgotPassword,
+    page: () => const ForgotPasswordView(),
+    binding: ForgotPasswordBinding(),
+  ),
+
+  GetPage(
+    name: AppRoutes.verifyCode,
+    page: () => VerifyCodeView(),
+    binding: ForgotPasswordBinding(),
+    // gunakan binding yg sama
+  ),
+  GetPage(
+    name: AppRoutes.resetPassword,
+    page: () => const ResetPasswordView(),
+    binding: ForgotPasswordBinding(),
   ),
 
   GetPage(

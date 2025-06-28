@@ -2,20 +2,71 @@
 We believe, the class name must be unique. 
 If there is a conflicting class name in this file,
 it means you have to rename it to something more unique.
-fileCount: 17
+fileCount: 66
 */
+export 'package:test_getx/core/constants/api/api_constants.dart';
+export 'package:test_getx/core/constants/style/app_colors.dart';
+export 'package:test_getx/core/utils/formatter/date_formatter.dart';
+export 'package:test_getx/core/utils/validator/login_validator.dart';
+export 'package:test_getx/core/widgets/button/button_widget.dart';
 export 'package:test_getx/core_package.dart';
+export 'package:test_getx/data/models/auth/user_model.dart';
+export 'package:test_getx/data/models/history/history_model.dart';
+export 'package:test_getx/data/models/izin/izin_model.dart';
+export 'package:test_getx/data/models/lembur/lembur_model.dart';
+export 'package:test_getx/data/models/schedule/ScheduleTodayModel.dart';
+export 'package:test_getx/data/models/user/jabatan_model.dart';
+export 'package:test_getx/data/models/user/karyawan_model.dart';
+// export 'package:test_getx/data/models/user/user_model.dart';
+export 'package:test_getx/data/models/user/user_profile_model..dart';
+export 'package:test_getx/data/providers/absensi/absensi_provider.dart';
+export 'package:test_getx/data/providers/auth/auth_provider.dart';
+export 'package:test_getx/data/providers/forgot/forgot_password_provider.dart';
+export 'package:test_getx/data/providers/history/history_provider.dart';
+export 'package:test_getx/data/providers/izin/izin_provider.dart';
+export 'package:test_getx/data/providers/lembur/lembur_provider.dart';
+export 'package:test_getx/data/providers/schedule/schedule_provider.dart';
+export 'package:test_getx/data/providers/user/user_provider.dart';
+export 'package:test_getx/data/services/location_service.dart';
+export 'package:test_getx/presentation/absensi/binding/absensi_binding.dart';
 export 'package:test_getx/presentation/absensi/controller/absensi_controller.dart';
 export 'package:test_getx/presentation/absensi/view/absensi_view.dart';
+export 'package:test_getx/presentation/forgot_password/controller/forgot_password_controller.dart';
+export 'package:test_getx/presentation/forgot_password/view/forgot_password_view.dart';
+export 'package:test_getx/presentation/history/binding/history_binding.dart';
 export 'package:test_getx/presentation/history/controller/history_controller.dart';
 export 'package:test_getx/presentation/history/view/history_view.dart';
+export 'package:test_getx/presentation/home/binding/home_binding.dart';
 export 'package:test_getx/presentation/home/controller/home_controller.dart';
 export 'package:test_getx/presentation/home/view/home_view.dart';
+export 'package:test_getx/presentation/home/widget/fiturAbsensi/fiturAbsensi_widget.dart';
+export 'package:test_getx/presentation/home/widget/header/header_widget.dart';
+export 'package:test_getx/presentation/izin/binding/izin_binding.dart';
 export 'package:test_getx/presentation/izin/controller/izin_controller.dart';
+export 'package:test_getx/presentation/izin/view/create_screen.dart';
+export 'package:test_getx/presentation/izin/view/edit_screen.dart';
 export 'package:test_getx/presentation/izin/view/izin_view.dart';
+export 'package:test_getx/presentation/izin/widget/izin_card.dart';
+export 'package:test_getx/presentation/izin/widget/stat_card.dart';
+export 'package:test_getx/presentation/lembur/binding/lembur_binding.dart';
 export 'package:test_getx/presentation/lembur/controller/lembur_controller.dart';
 export 'package:test_getx/presentation/lembur/view/lembur_view.dart';
+export 'package:test_getx/presentation/lembur/widget/lembur_appbar.dart';
+export 'package:test_getx/presentation/lembur/widget/lembur_card.dart';
+export 'package:test_getx/presentation/lembur/widget/lembur_empty.dart';
+export 'package:test_getx/presentation/lembur/widget/lembur_error.dart';
+export 'package:test_getx/presentation/lembur/widget/lembur_summary_card.dart';
+export 'package:test_getx/presentation/lembur/widget/time_info_card.dart';
+export 'package:test_getx/presentation/login/binding/login_binding.dart';
+// export 'package:test_getx/presentation/login/controller/forgot_password_controller.dart';
 export 'package:test_getx/presentation/login/controller/login_controller.dart';
 export 'package:test_getx/presentation/login/view/login_view.dart';
+export 'package:test_getx/presentation/main/binding/main_binding.dart';
 export 'package:test_getx/presentation/main/controller/main_controller.dart';
 export 'package:test_getx/presentation/main/view/main_view.dart';
+export 'package:test_getx/routes/app_pages.dart';
+export 'package:test_getx/routes/app_routes.dart';
+export 'package:test_getx/widgets/appbar/appbar_widget.dart';
+export 'package:test_getx/widgets/Controller/controller_empty.dart';
+export 'package:test_getx/widgets/Controller/controller_error.dart';
+export 'package:test_getx/widgets/Controller/controller_loading.dart';

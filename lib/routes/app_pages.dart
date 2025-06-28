@@ -1,6 +1,10 @@
 abstract class AppRoutes {
   static const splash = '/';
   static const login = '/login';
+  static const forgotPassword = '/forgot-password';
+  static const verifyCode = '/verify-code';
+  static const resetPassword = '/reset-password';
+  
   static const main = '/main';
   static const home = '/home';
 

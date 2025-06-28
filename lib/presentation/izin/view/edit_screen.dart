@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:test_getx/core.dart';
-import 'package:test_getx/data/models/izin/izin_model.dart';
 
 class EditScreen extends StatelessWidget {
   EditScreen({super.key});

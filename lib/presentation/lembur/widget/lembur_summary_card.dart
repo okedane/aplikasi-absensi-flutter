@@ -11,7 +11,7 @@ class LemburSummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final totalJam = lemburList.fold<double>(
       0.0,
-      (sum, item) => sum + (item.totalJam ?? 0),
+      (sum, item) => sum + (item.totalJam),
     );
     final totalHari = lemburList.length;
 

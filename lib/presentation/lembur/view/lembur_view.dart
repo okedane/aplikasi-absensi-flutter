@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
-import 'package:test_getx/presentation/lembur/widget/lembur_card.dart';
-import 'package:test_getx/presentation/lembur/widget/lembur_empty.dart';
-import 'package:test_getx/presentation/lembur/widget/lembur_error.dart';
-import 'package:test_getx/presentation/lembur/widget/lembur_summary_card.dart';
-import 'package:test_getx/presentation/lembur/widget/lembur_appbar.dart';
-import 'package:test_getx/widgets/Controller/controller_loading.dart';
 
 class LemburView extends GetView<LemburController> {
   const LemburView({super.key});

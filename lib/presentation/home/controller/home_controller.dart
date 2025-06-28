@@ -18,6 +18,11 @@ class HomeController extends GetxController {
     fetchUser(); // ambil data user saat controller dibuat
   }
 
+  @override
+  void refresh() async {
+    fetchUser();
+  }
+
   void fetchUser() async {
     try {
       isLoading.value = true;

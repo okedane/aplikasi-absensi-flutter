@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
-import 'package:test_getx/core/constants/style/app_colors.dart';
-import 'package:test_getx/presentation/izin/widget/izin_card.dart';
-import 'package:test_getx/presentation/izin/widget/stat_card.dart';
-import 'package:test_getx/routes/app_pages.dart';
-import 'package:test_getx/widgets/Controller/controller_empty.dart';
-import 'package:test_getx/widgets/Controller/controller_error.dart';
-import 'package:test_getx/widgets/Controller/controller_loading.dart';
-import 'package:test_getx/widgets/appbar/appbar_widget.dart';
+
 
 class IzinView extends GetView<IzinController> {
   const IzinView({super.key});

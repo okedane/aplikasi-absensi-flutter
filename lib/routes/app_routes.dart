@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:test_getx/core.dart';
 import 'package:test_getx/presentation/forgot_password/binding/forgot_password_binding.dart';
 import 'package:test_getx/presentation/forgot_password/view/forgot_password_view.dart';
 import 'package:test_getx/presentation/forgot_password/view/reset_password_view.dart';
 import 'package:test_getx/presentation/forgot_password/view/verify_code_view.dart';
 import 'package:test_getx/presentation/izin/view/create_screen.dart';
 import 'package:test_getx/presentation/izin/view/edit_screen.dart';
+import 'package:test_getx/presentation/profile/binding/profile_binding.dart';
 import '../presentation/main/view/main_view.dart';
 
 import './app_pages.dart';
@@ -84,5 +86,11 @@ final List<GetPage> appPages = [
     name: AppRoutes.history,
     page: () => HistoryView(),
     binding: HistoryBinding(),
+  ),
+
+  GetPage(
+    name: AppRoutes.profile,
+    page: () => ProfileView(),
+    binding: ProfileBinding(),
   ),
 ];

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
-import 'package:test_getx/data/models/history/history_model.dart';
-import 'package:test_getx/widgets/Controller/controller_empty.dart';
-import 'package:test_getx/widgets/Controller/controller_error.dart';
-import 'package:test_getx/widgets/Controller/controller_loading.dart';
-import 'package:test_getx/widgets/appbar/appbar_widget.dart';
 
 class HistoryView extends GetView<HistoryController> {
   const HistoryView({super.key});
@@ -97,10 +92,10 @@ Widget _buildHeader(BuildContext context, AbsensiHistoryModel item) {
       Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.blue[100],
+          color: const Color.fromARGB(77, 240, 14, 168),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Icon(Icons.calendar_today, size: 16, color: Colors.blue[600]),
+        child: Icon(Icons.calendar_today, size: 16, color: primaryColor),
       ),
       const SizedBox(width: 12),
       Expanded(

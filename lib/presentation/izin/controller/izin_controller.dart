@@ -25,10 +25,7 @@ class IzinController extends GetxController {
     fetchIzin();
   }
 
-  @override
-  void refresh() async {
-    await fetchIzin();
-  }
+
 
   Future<void> fetchIzin() async {
     isLoading.value = true;
@@ -85,7 +82,7 @@ class IzinController extends GetxController {
     tanggalMulaiController.text = item.tanggalMulai;
     tanggalSelesaiController.text = item.tanggalSelesai;
     jenisIzin.value = item.jenisIzin;
-    alasanController.text = item.alasan ?? '';
+    alasanController.text = item.alasan;
   }
 
   Future<void> updateIzin({

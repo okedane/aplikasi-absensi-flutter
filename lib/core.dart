@@ -2,7 +2,7 @@
 We believe, the class name must be unique. 
 If there is a conflicting class name in this file,
 it means you have to rename it to something more unique.
-fileCount: 66
+fileCount: 70
 */
 export 'package:test_getx/core/constants/api/api_constants.dart';
 export 'package:test_getx/core/constants/style/app_colors.dart';
@@ -31,8 +31,11 @@ export 'package:test_getx/data/services/location_service.dart';
 export 'package:test_getx/presentation/absensi/binding/absensi_binding.dart';
 export 'package:test_getx/presentation/absensi/controller/absensi_controller.dart';
 export 'package:test_getx/presentation/absensi/view/absensi_view.dart';
+export 'package:test_getx/presentation/forgot_password/binding/forgot_password_binding.dart';
 export 'package:test_getx/presentation/forgot_password/controller/forgot_password_controller.dart';
 export 'package:test_getx/presentation/forgot_password/view/forgot_password_view.dart';
+export 'package:test_getx/presentation/forgot_password/view/reset_password_view.dart';
+export 'package:test_getx/presentation/forgot_password/view/verify_code_view.dart';
 export 'package:test_getx/presentation/history/binding/history_binding.dart';
 export 'package:test_getx/presentation/history/controller/history_controller.dart';
 export 'package:test_getx/presentation/history/view/history_view.dart';
@@ -58,12 +61,13 @@ export 'package:test_getx/presentation/lembur/widget/lembur_error.dart';
 export 'package:test_getx/presentation/lembur/widget/lembur_summary_card.dart';
 export 'package:test_getx/presentation/lembur/widget/time_info_card.dart';
 export 'package:test_getx/presentation/login/binding/login_binding.dart';
-// export 'package:test_getx/presentation/login/controller/forgot_password_controller.dart';
 export 'package:test_getx/presentation/login/controller/login_controller.dart';
 export 'package:test_getx/presentation/login/view/login_view.dart';
 export 'package:test_getx/presentation/main/binding/main_binding.dart';
 export 'package:test_getx/presentation/main/controller/main_controller.dart';
 export 'package:test_getx/presentation/main/view/main_view.dart';
+export 'package:test_getx/presentation/profile/controller/profile_controller.dart';
+export 'package:test_getx/presentation/profile/view/profile_view.dart';
 export 'package:test_getx/routes/app_pages.dart';
 export 'package:test_getx/routes/app_routes.dart';
 export 'package:test_getx/widgets/appbar/appbar_widget.dart';

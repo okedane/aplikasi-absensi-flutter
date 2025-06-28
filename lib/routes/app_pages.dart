@@ -4,7 +4,7 @@ abstract class AppRoutes {
   static const forgotPassword = '/forgot-password';
   static const verifyCode = '/verify-code';
   static const resetPassword = '/reset-password';
-  
+
   static const main = '/main';
   static const home = '/home';
 
@@ -22,4 +22,6 @@ abstract class AppRoutes {
   static const izinDetail = '/izin/detail';
 
   static const history = '/history';
+
+  static const profile = '/profile';
 }

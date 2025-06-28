@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
-import 'package:test_getx/core/constants/style/app_colors.dart';
-import 'package:test_getx/routes/app_pages.dart';
-
-import '../widget/header/header_widget.dart';
-import '../widget/fiturAbsensi/fiturAbsensi_widget.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});

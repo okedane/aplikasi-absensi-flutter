@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 
 class LemburProvider {
   final storage = GetStorage();
-
   Future<List<LemburModel>> getLembur() async {
     final token = storage.read('token');
 
@@ -17,11 +16,15 @@ class LemburProvider {
 
     if (response.statusCode == 200) {
       final body = jsonDecode(response.body);
+      final data = body['data'];
 
-      // ✅ Pastikan 'data' adalah List
-      final List lemburData = body['data'];
+      if (data == null || data is! List) {
+        return [];
+      }
 
-      return lemburData.map((item) => LemburModel.fromJson(item)).toList();
+      return data
+          .map<LemburModel>((item) => LemburModel.fromJson(item))
+          .toList();
     } else {
       throw Exception('Gagal Memuat data Lembur');
     }

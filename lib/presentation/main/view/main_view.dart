@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
 
-
 class MainView extends GetView<MainController> {
   const MainView({super.key});
 
@@ -17,7 +16,10 @@ class MainView extends GetView<MainController> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.currentIndex.value,
           onTap: controller.changeTab,
-          items: const [
+          selectedItemColor: primaryColor, // warna saat dipilih
+          unselectedItemColor: greyShape700, // warna saat tidak dipilih
+          backgroundColor: backgroundColor, // warna background bar
+        items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",

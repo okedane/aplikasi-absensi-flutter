@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:test_getx/core/constants/style/app_colors.dart';
 import 'package:test_getx/core/utils/formatter/date_formatter.dart';
 import 'package:test_getx/presentation/absensi/controller/absensi_controller.dart';
-import 'package:test_getx/widgets/Controller/controller_empty.dart';
 import 'package:test_getx/widgets/Controller/controller_error.dart';
 import 'package:test_getx/widgets/Controller/controller_loading.dart';
 import 'package:test_getx/widgets/appbar/appbar_widget.dart';
@@ -23,22 +22,73 @@ class AbsensiView extends GetView<AbsensiController> {
       if (controller.hasError.value) {
         return ControllerError(
           message: controller.errorMessage.value,
-          onRetry: controller.refresh,
+          onRetry: () => controller.fetchTodaySchedule(),
         );
       }
       final data = controller.scheduleToday.value;
+      if (controller.isLoading.value) {
+        return ControllerLoading(pesan: "Memuat data History");
+      }
       if (data == null) {
-        return ControllerEmpty(
-          textAppbar: "Absensi",
-          title: "Belum ada Absensi",
-          pesan: "Belum ada Absensi Hari ini",
+        return Scaffold(
+          backgroundColor: Colors.grey[50],
+          appBar: AppBarWidget(title: "Absensi"),
+          body: Center(
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(32),
+              decoration: BoxDecoration(
+                color: whiteC,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    spreadRadius: 2,
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.blue[50],
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.access_time_outlined,
+                      size: 48,
+                      color: Colors.blue[400],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "Absens",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Tidak ada data Absensi",
+                    style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+                  ),
+                ],
+              ),
+            ),
+          ),
         );
       }
 
       return Scaffold(
         appBar: AppBarWidget(title: "Absensi"),
         body: RefreshIndicator(
-          onRefresh: () async => controller.refresh(),
+          onRefresh: () async => controller.fetchTodaySchedule(),
           child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
@@ -84,19 +134,6 @@ Widget _buildHeroHeader(BuildContext context, dynamic data) {
               stops: const [0.0, 0.5, 1.0],
             ),
             borderRadius: BorderRadius.circular(24),
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: primaryColor.withOpacity(0.4),
-            //     blurRadius: 20,
-            //     offset: const Offset(0, 3),
-            //     spreadRadius: 2,
-            //   ),
-            //   BoxShadow(
-            //     color: Colors.black.withOpacity(0.1),
-            //     blurRadius: 10,
-            //     offset: const Offset(0, 2),
-            //   ),
-            // ],
           ),
         ),
 

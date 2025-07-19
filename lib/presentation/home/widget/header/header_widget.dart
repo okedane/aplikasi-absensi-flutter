@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core/constants/style/app_colors.dart';
 import 'package:test_getx/presentation/home/controller/home_controller.dart';
+import 'package:test_getx/routes/app_pages.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -13,14 +14,19 @@ class HeaderWidget extends StatelessWidget {
       final user = controller.user.value;
       return Row(
         children: [
-          ClipOval(
-            child: Container(
-              color: primaryLight,
-              child: Image.asset(
-                "assets/logo/profile.png",
-                width: 40.0,
-                height: 40.0,
-                fit: BoxFit.cover,
+          InkWell(
+            onTap: () {
+              Get.toNamed(AppRoutes.changePassword);
+            },
+            child: ClipOval(
+              child: Container(
+                color: primaryLight,
+                child: Image.asset(
+                  "assets/logo/profile.png",
+                  width: 40.0,
+                  height: 40.0,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

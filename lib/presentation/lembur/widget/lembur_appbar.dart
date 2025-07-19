@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LemburAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const LemburAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AppBar(

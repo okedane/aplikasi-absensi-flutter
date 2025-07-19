@@ -33,8 +33,7 @@ class HistoryController extends GetxController {
     }
   }
 
-  @override
-  Future<void> refresh() async {
+  Future<void> refreshHistory() async {
     await fetchHistory();
   }
 }

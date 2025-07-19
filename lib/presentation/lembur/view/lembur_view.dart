@@ -19,11 +19,17 @@ class LemburView extends GetView<LemburController> {
         );
       }
 
-      final data = controller.lemburList
-        ..sort((a, b) => b.tanggal.compareTo(a.tanggal)); // Urut dari terbaru
-      final limitedData = data.take(5).toList(); // Ambil 5 teratas
-
-      if (data.isEmpty) return const LemburEmpty();
+      if (controller.lemburList.isEmpty) {
+        return ControllerEmpty(
+          textAppbar: "Lembur",
+          title: "Belum ada Data Lembur",
+          pesan: "Tidak ada data Lembur hari ini",
+          onReload: controller.refresh,
+        );
+      }
+      final data = [...controller.lemburList];
+      data.sort((a, b) => b.tanggal.compareTo(a.tanggal));
+      final limitedData = data.take(5).toList();
 
       return Scaffold(
         backgroundColor: Colors.grey[50],

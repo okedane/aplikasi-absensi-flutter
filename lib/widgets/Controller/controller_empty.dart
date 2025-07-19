@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:test_getx/core.dart';
 
 class ControllerEmpty extends StatelessWidget {
   final String textAppbar;
   final String title;
   final String pesan;
+  final VoidCallback? onReload;
+
   const ControllerEmpty({
     required this.textAppbar,
     required this.title,
     required this.pesan,
+    this.onReload,
     super.key,
   });
 
@@ -44,7 +48,7 @@ class ControllerEmpty extends StatelessWidget {
                 child: Icon(
                   Icons.access_time_outlined,
                   size: 48,
-                  color: Colors.blue[400],
+                  color: primaryColor,
                 ),
               ),
               const SizedBox(height: 20),
@@ -60,7 +64,26 @@ class ControllerEmpty extends StatelessWidget {
               Text(
                 pesan,
                 style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+                textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 24),
+              if (onReload != null)
+                ElevatedButton.icon(
+                  onPressed: onReload,
+                  icon: const Icon(Icons.refresh),
+                  label: const Text("Muat Ulang"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

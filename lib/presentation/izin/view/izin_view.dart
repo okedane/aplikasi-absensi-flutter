@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/core.dart';
 
-
 class IzinView extends GetView<IzinController> {
   const IzinView({super.key});
 
@@ -16,16 +15,90 @@ class IzinView extends GetView<IzinController> {
       if (controller.hasError.value) {
         return ControllerError(
           message: controller.errorMessage.value,
-          onRetry: controller.refresh,
+          // onRetry: controller.refresh,
+          onRetry: () => controller.fetchIzin(),
         );
       }
 
       final data = controller.izinList;
       if (data.isEmpty) {
-        return ControllerEmpty(
-          textAppbar: "Izin",
-          title: "Belum ada Izin",
-          pesan: "Tidak ada Izin bulan ini ",
+        return Scaffold(
+          backgroundColor: Colors.grey[50],
+          appBar: AppBarWidget(title: "Izin"),
+          body: Center(
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(32),
+              decoration: BoxDecoration(
+                color: whiteC,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    spreadRadius: 2,
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.blue[50],
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.access_time_outlined,
+                      size: 48,
+                      color: primaryColor,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "Izin",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Tidak ada data Izin",
+                    style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          floatingActionButton: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: primaryColor.withOpacity(0.4),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
+            child: FloatingActionButton.extended(
+              backgroundColor: primaryColor,
+              foregroundColor: whiteC,
+              onPressed: () {
+                controller.resetForm();
+                Get.toNamed(AppRoutes.izinCreate);
+              },
+              icon: const Icon(Icons.add_rounded),
+              label: const Text(
+                "Tambah Izin",
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+          ),
         );
       }
 
@@ -33,7 +106,7 @@ class IzinView extends GetView<IzinController> {
         backgroundColor: backgroundColor,
         appBar: AppBarWidget(title: "Daftar Izin"),
         body: RefreshIndicator(
-          onRefresh: () async => controller.refresh(),
+          onRefresh: () async => controller.fetchIzin(),
           color: primaryColor,
           child: CustomScrollView(
             physics: const AlwaysScrollableScrollPhysics(),

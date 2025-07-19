@@ -54,6 +54,11 @@ class CreateScreen extends StatelessWidget {
                 items: const [
                   DropdownMenuItem(value: "sakit", child: Text("Sakit")),
                   DropdownMenuItem(value: "cuti", child: Text("Cuti")),
+                  DropdownMenuItem(value: "izin", child: Text("Izin")),
+                  DropdownMenuItem(
+                    value: "dispensasi",
+                    child: Text("Dispensasi"),
+                  ),
                   DropdownMenuItem(value: "lainnya", child: Text("Lainnya")),
                 ],
                 onChanged: (value) => controller.jenisIzin.value = value,
@@ -73,7 +78,7 @@ class CreateScreen extends StatelessWidget {
                 height: 48,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    backgroundColor: primaryColor,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),

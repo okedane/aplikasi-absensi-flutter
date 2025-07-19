@@ -15,7 +15,7 @@ class HistoryView extends GetView<HistoryController> {
       if (controller.hasError.value) {
         return ControllerError(
           message: controller.errorMessage.value,
-          onRetry: controller.refresh,
+          onRetry: controller.refreshHistory,
         );
       }
 
@@ -27,58 +27,49 @@ class HistoryView extends GetView<HistoryController> {
           textAppbar: "History",
           title: "Belum ada History",
           pesan: "Tidak ada History bulan ini ",
+          onReload: controller.refreshHistory,
         );
       }
 
       return Scaffold(
         appBar: AppBarWidget(title: "History"),
         body: RefreshIndicator(
-          onRefresh: () async {
-            controller.refresh();
-          },
-          child: SingleChildScrollView(
+          onRefresh: controller.refreshHistory,
+          child: ListView.builder(
             physics: const AlwaysScrollableScrollPhysics(),
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                ListView.builder(
-                  itemCount: limitedData.length,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    final item = data[index];
-                    return Card(
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusGeometry.circular(12),
-                        side: BorderSide(color: Colors.grey[200]!),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          gradient: LinearGradient(
-                            colors: [Colors.white, Colors.grey[50]!],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildHeader(context, item),
-                              SizedBox(height: 16.0),
-                              Text(item.status),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+            itemCount: limitedData.length,
+            itemBuilder: (BuildContext context, int index) {
+              final item = limitedData[index];
+              return Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(color: Colors.grey[200]!),
                 ),
-              ],
-            ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: LinearGradient(
+                      colors: [Colors.white, Colors.grey[50]!],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildHeader(context, item),
+                        const SizedBox(height: 16.0),
+                        Text(item.status),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       );

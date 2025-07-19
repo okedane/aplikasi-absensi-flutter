@@ -28,7 +28,7 @@ class LoginView extends GetView<LoginController> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 30),
-                TextFormField(
+               TextFormField(
                   controller: controller.emailController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(

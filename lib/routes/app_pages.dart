@@ -24,4 +24,5 @@ abstract class AppRoutes {
   static const history = '/history';
 
   static const profile = '/profile';
+  static const changePassword = '/change-password';
 }

@@ -1,16 +1,38 @@
-# test_getx
+# 🚀 Absensi - Sistem Manajemen Kehadiran Karyawan
+### Studi Kasus: Restoran Melita Kitchen
 
-A new Flutter project.
+## 📝 Deskripsi
+Sistem manajemen kehadiran karyawan ini terintegrasi dengan [backend Laravel](https://github.com/okedane/Absensi-Backend-Laravel).
 
-## Getting Started
+## 🖥️ Fitur Utama
+- ⌚ Absensi Berbasis Lokasi
+- 📝 Pengajuan Izin 
+- 📋 Riwayat Kehadiran
+- ⏰ Manajemen Lembur
 
-This project is a starting point for a Flutter application.
+## 📸 Interface
+<details>
+<summary>Screenshots Aplikasi</summary>
 
-A few resources to get you started if this is your first Flutter project:
+### 🔐 Login
+![Login Page](readme/1-login.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🔑 Reset Password
+![Reset Password Page](readme/2-forgot.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 📊 Dashboard
+![Dashboard](readme/3-dashboard.png)
+
+### 📍 Absensi
+![Absensi Page](readme/4-absensi.png)
+
+### ⏱️ Lembur
+![Lembur Page](readme/5-lembur.png)
+
+### 📋 Izin
+![Izin Page](readme/6-izin.png)
+
+### 📜 Riwayat
+![History Page](readme/7-history.png)
+
+</details>

@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const baseUrl = 'https://d2f157c753cc.ngrok-free.app/api';
+  static const baseUrl = 'https://220fa5cc464c.ngrok-free.app/api';
 
   // Optional tambahan untuk endpoint
   static const login = '$baseUrl/login';

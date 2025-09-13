@@ -13,26 +13,29 @@ Sistem manajemen kehadiran karyawan ini terintegrasi dengan [backend Laravel](ht
 ## 📸 Interface
 <details>
 <summary>Screenshots Aplikasi</summary>
+<p align="center">
 
 ### 🔐 Login
-![Login Page](assets/readme/1-login.png)
+<img src="assets/readme/1-login.png" alt="Login Page" width="300"/>
 
 ### 🔑 Reset Password
-![Reset Password Page](assets/readme/2-forgot.png)
+<img src="assets/readme/2-forgot.png" alt="Reset Password Page" width="300"/>
 
 ### 📊 Dashboard
-![Dashboard](assets/readme/3-dashboard.png)
+<img src="assets/readme/3-dashboard.png" alt="Dashboard" width="300"/>
 
 ### 📍 Absensi
-![Absensi Page](assets/readme/4-absensi.png)
+<img src="assets/readme/4-absensi.png" alt="Absensi Page" width="300"/>
 
 ### ⏱️ Lembur
-![Lembur Page](assets/readme/5-lembur.png)
+<img src="assets/readme/5-lembur.png" alt="Lembur Page" width="300"/>
 
 ### 📋 Izin
-![Izin Page](assets/readme/6-izin.png)
+<img src="assets/readme/7-izin.png" alt="Izin Page" width="300"/>
 
 ### 📜 Riwayat
-![History Page](assets/readme/7-history.png)
+<img src="assets/readme/8-history.png" alt="History Page" width="300"/>
+
+</p>
 
 </details>

@@ -36,45 +36,45 @@ Sistem manajemen kehadiran karyawan ini terintegrasi dengan [backend Laravel](ht
 ![History Page](assets/readme/8-history.png)
 
 </details>
-
 ## 📸 Interface
 <details>
-<summary>Screenshots chat gpt</summary>
+<summary>Screenshots Aplikasi</summary>
 
 ### 🔐 Login
 <p align="center">
-  <img src="assets/readme/1-login.png" alt="Login Page" width="200"/>
+  <img src="assets/readme/1-login.png" alt="Login Page" width="250"/>
 </p>
 
 ### 🔑 Reset Password
 <p align="center">
-  <img src="assets/readme/2-forgot.png" alt="Reset Password Page" width="200"/>
+  <img src="assets/readme/2-forgot.png" alt="Reset Password Page" width="250"/>
 </p>
 
 ### 📊 Dashboard
 <p align="center">
-  <img src="assets/readme/3-dashboard.png" alt="Dashboard" width="500"/>
+  <img src="assets/readme/3-dashboard.png" alt="Dashboard" width="280"/>
 </p>
 
 ### 📍 Absensi
 <p align="center">
-  <img src="assets/readme/4-absensi.png" alt="Absensi Page" width="200"/>
+  <img src="assets/readme/4-absensi.png" alt="Absensi Page" width="250"/>
 </p>
 
 ### ⏱️ Lembur
 <p align="center">
-  <img src="assets/readme/5-lembur.png" alt="Lembur Page" width="200"/>
+  <img src="assets/readme/5-lembur.png" alt="Lembur Page" width="250"/>
 </p>
 
 ### 📋 Izin
 <p align="center">
-  <img src="assets/readme/7-izin.png" alt="Izin Page" width="200"/>
+  <img src="assets/readme/7-izin.png" alt="Izin Page" width="250"/>
 </p>
 
 ### 📜 Riwayat
 <p align="center">
-  <img src="assets/readme/8-history.png" alt="History Page" width="200"/>
+  <img src="assets/readme/8-history.png" alt="History Page" width="250"/>
 </p>
 
 </details>
+
 

@@ -13,29 +13,68 @@ Sistem manajemen kehadiran karyawan ini terintegrasi dengan [backend Laravel](ht
 ## 📸 Interface
 <details>
 <summary>Screenshots Aplikasi</summary>
-<p align="center">
 
 ### 🔐 Login
-<img src="assets/readme/1-login.png" alt="Login Page" width="300"/>
+![Login Page](assets/readme/1-login.png)
 
 ### 🔑 Reset Password
-<img src="assets/readme/2-forgot.png" alt="Reset Password Page" width="300"/>
+![Reset Password Page](assets/readme/2-forgot.png)
 
 ### 📊 Dashboard
-<img src="assets/readme/3-dashboard.png" alt="Dashboard" width="300"/>
+![Dashboard](assets/readme/3-dashboard.png)
 
 ### 📍 Absensi
-<img src="assets/readme/4-absensi.png" alt="Absensi Page" width="300"/>
+![Absensi Page](assets/readme/4-absensi.png)
 
 ### ⏱️ Lembur
-<img src="assets/readme/5-lembur.png" alt="Lembur Page" width="300"/>
+![Lembur Page](assets/readme/5-lembur.png)
 
 ### 📋 Izin
-<img src="assets/readme/7-izin.png" alt="Izin Page" width="300"/>
+![Izin Page](assets/readme/7-izin.png)
 
 ### 📜 Riwayat
-<img src="assets/readme/8-history.png" alt="History Page" width="300"/>
+![History Page](assets/readme/8-history.png)
 
+</details>
+
+## 📸 Interface
+<details>
+<summary>Screenshots chat gpt</summary>
+
+### 🔐 Login
+<p align="center">
+  <img src="assets/readme/1-login.png" alt="Login Page" width="400"/>
+</p>
+
+### 🔑 Reset Password
+<p align="center">
+  <img src="assets/readme/2-forgot.png" alt="Reset Password Page" width="400"/>
+</p>
+
+### 📊 Dashboard
+<p align="center">
+  <img src="assets/readme/3-dashboard.png" alt="Dashboard" width="500"/>
+</p>
+
+### 📍 Absensi
+<p align="center">
+  <img src="assets/readme/4-absensi.png" alt="Absensi Page" width="400"/>
+</p>
+
+### ⏱️ Lembur
+<p align="center">
+  <img src="assets/readme/5-lembur.png" alt="Lembur Page" width="400"/>
+</p>
+
+### 📋 Izin
+<p align="center">
+  <img src="assets/readme/7-izin.png" alt="Izin Page" width="400"/>
+</p>
+
+### 📜 Riwayat
+<p align="center">
+  <img src="assets/readme/8-history.png" alt="History Page" width="400"/>
 </p>
 
 </details>
+

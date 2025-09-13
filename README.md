@@ -9,64 +9,25 @@ Sistem manajemen kehadiran karyawan ini terintegrasi dengan [backend Laravel](ht
 - 📝 Pengajuan Izin 
 - 📋 Riwayat Kehadiran
 - ⏰ Manajemen Lembur
-<!-- 
 ## 📸 Interface
 <details>
 <summary>Screenshots Aplikasi</summary>
 
-### 🔐 Login
-![Login Page](assets/readme/1-login.png)
-
-### 🔑 Reset Password
-![Reset Password Page](assets/readme/2-forgot.png)
-
-### 📊 Dashboard
-![Dashboard](assets/readme/3-dashboard.png)
-
-### 📍 Absensi
-![Absensi Page](assets/readme/4-absensi.png)
-
-### ⏱️ Lembur
-![Lembur Page](assets/readme/5-lembur.png)
-
-### 📋 Izin
-![Izin Page](assets/readme/7-izin.png)
-
-### 📜 Riwayat
-![History Page](assets/readme/8-history.png)
-
-</details> -->
-## 📸 Interface
-<details>
-<summary>Screenshots Aplikasi</summary>
-
-### 🔐 Login
+### 🔐 Login & Reset Password
 <p align="center">
   <img src="assets/readme/1-login.png" alt="Login Page" width="150"/>
-</p>
-
-### 🔑 Reset Password
-<p align="center">
   <img src="assets/readme/2-forgot.png" alt="Reset Password Page" width="150"/>
 </p>
 
-### 📊 Dashboard
+### 📊 Dashboard & 📍 Absensi
 <p align="center">
-  <img src="assets/readme/3-dashboard.png" alt="Dashboard" width="280"/>
-</p>
-
-### 📍 Absensi
-<p align="center">
+  <img src="assets/readme/3-dashboard.png" alt="Dashboard" width="150"/>
   <img src="assets/readme/4-absensi.png" alt="Absensi Page" width="150"/>
 </p>
 
-### ⏱️ Lembur
+### ⏱️ Lembur & 📋 Izin
 <p align="center">
   <img src="assets/readme/5-lembur.png" alt="Lembur Page" width="150"/>
-</p>
-
-### 📋 Izin
-<p align="center">
   <img src="assets/readme/7-izin.png" alt="Izin Page" width="150"/>
 </p>
 
@@ -76,5 +37,3 @@ Sistem manajemen kehadiran karyawan ini terintegrasi dengan [backend Laravel](ht
 </p>
 
 </details>
-
-
